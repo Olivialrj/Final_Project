@@ -1,0 +1,48 @@
+.main {
+  /* min-height: 974px; */
+  background-color: #f5f6f7;
+  position: relative;
+}
+.main--loading {
+  min-height: 282px;
+}
+
+.main__loader {
+  position: absolute;
+  top: 165px;
+  right: 580px;
+  width: 280px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.main__content {
+  min-height: 974px;
+}
+.main__header {
+  font-size: 40px;
+  margin: 0;
+  padding: 80px 0 0 104px;
+}
+
+.main__list {
+  padding: 64px 0 64px 104px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.main__button {
+  width: 288px;
+  height: 64px;
+  border-radius: 80px;
+  border: none;
+  display: block;
+  margin: 0 auto 80px auto;
+  background-color: white;
+}
+
+.main__button:hover {
+  background-color: #e8e8e8;
+  cursor: pointer;
+}

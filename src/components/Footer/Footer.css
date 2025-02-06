@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 104px 26px 104px;
+  background-color: white;
+}
+
+.footer__header {
+  font-size: 16px;
+  color: darkgray;
+  font-weight: 400;
+}
+
+.footer__nav {
+  display: flex;
+  gap: 40px;
+  font-size: 18px;
+}
+.footer__home {
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+}
+.footer__tripleten {
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+}
+.footer__logos {
+  gap: 24px;
+  display: flex;
+}

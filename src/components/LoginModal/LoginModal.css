@@ -1,0 +1,21 @@
+.modal__form-label {
+  color: #2f71e5;
+
+  margin-bottom: 9px;
+  font-size: 12px;
+}
+
+.modal__form-label:last-child {
+  margin: 53px 0 50px 0;
+}
+
+.modal__form-input {
+  border: none;
+  border-bottom: solid 1px lightgrey;
+  margin-bottom: 31px;
+  font-size: 14px;
+}
+
+.modal__form-input:last-of-type {
+  margin-bottom: 39px;
+}

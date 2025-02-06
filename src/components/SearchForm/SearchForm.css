@@ -1,0 +1,48 @@
+.searchForm__modal {
+  display: flex;
+  justify-content: center;
+}
+.searchForm {
+  display: flex;
+  align-items: center;
+  width: 608px; /* Match the width in your design */
+  height: 64px;
+  border-radius: 32px; /* Half the height for full rounding */
+  overflow: hidden;
+  border: 1 solid darkgray;
+}
+
+.searchForm__input {
+  flex: 1; /* Takes up all available space */
+  height: 100%;
+  border: none;
+  padding: 0 20px;
+  font-size: 16px;
+  outline: none; /* Removes default focus outline */
+  color: #333;
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+}
+
+.searchForm__button {
+  height: 100%;
+  padding: 0 24px;
+  background-color: #4285f4; /* Blue background */
+  color: white; /* White text */
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  width: 168px;
+  margin-left: -30px;
+  border-radius: 100px;
+}
+
+.searchForm__button:hover {
+  background-color: #347eff;
+  cursor: pointer;
+}
+
+.searchForm__button:active {
+  background-color: #2a65cc;
+  cursor: pointer;
+}

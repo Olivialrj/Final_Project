@@ -1,0 +1,26 @@
+.savedNews__header {
+  padding: 40px 806px 56px 104px;
+  background-color: white;
+}
+
+.savedNews__title {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.savedNews__subtitle {
+  width: 530px;
+  font-size: 40px;
+  font-family: "Roboto-Slab";
+  font-weight: 400;
+}
+.savedNews__keywords {
+  font-size: 18px;
+}
+
+.savedNews__list {
+  padding: 62px 104px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}

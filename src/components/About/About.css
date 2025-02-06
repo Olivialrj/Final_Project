@@ -1,0 +1,35 @@
+.about {
+  background-color: white;
+}
+.about__modal {
+  display: flex;
+  align-items: start;
+  padding: 80px 216px 80px 104px;
+  gap: 56px;
+}
+
+.about__img {
+  border-radius: 1000px;
+  height: 464px;
+  width: 464px;
+}
+
+.about__header {
+  font-size: 40px;
+  margin: 51px 0 24px 0;
+  font-weight: 400;
+  font-family: "Roboto-Slab";
+}
+
+.about__paragraph1 {
+  font-size: 18px;
+  font-weight: 400;
+}
+.about__paragraph2 {
+  font-size: 18px;
+  font-weight: 400;
+}
+.about__lists {
+  font-size: 18px;
+  font-weight: 400;
+}
