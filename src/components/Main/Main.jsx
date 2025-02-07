@@ -1,4 +1,5 @@
 import { useState } from "react";
+import notFound from "../../assets/not-found_v1.svg";
 import Preloader from "../Preloader/Preloader";
 import NewsCard from "../NewsCard/NewsCard";
 import "./Main.css";
@@ -9,6 +10,7 @@ function Main({
   isLoggedIn,
   handleSavedNewsToggle,
   savedNews,
+  errorMessage,
 }) {
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -26,11 +28,25 @@ function Main({
       {isLoading ? (
         <>
           <Preloader />
-          <p className="main__loader">Searching for articles</p>
+          <p className="main__loader">Searching for articles...</p>
+        </>
+      ) : errorMessage ? (
+        <>
+          <div className="main__errors">
+            <img
+              src={notFound}
+              alt="Not found icon"
+              className="main__error-img"
+            />
+            <p className="main__error">Nothing Found</p>
+            <p className="main__error2">
+              Sorry, but nothing matched
+              <br /> your search term.
+            </p>
+          </div>
         </>
       ) : (
         <>
-          <h2 className="main__header">Search</h2>
           <ul className="main__list">
             {searchResults.slice(0, visibleCount).map((article, index) => {
               const isSaved = savedNews.some(
@@ -56,9 +72,6 @@ function Main({
             <button className="main__button" onClick={handleShowMore}>
               Show more
             </button>
-          )}
-          {!isLoading && searchResults.length === 0 && (
-            <p>No articles found.</p>
           )}
         </>
       )}

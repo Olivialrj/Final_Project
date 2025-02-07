@@ -26,29 +26,6 @@ function App() {
   const [savedNews, setSavedNews] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
-  class ErrorBoundary extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { hasError: false };
-    }
-
-    static getDerivedStateFromError(error) {
-      return { hasError: true };
-    }
-
-    componentDidCatch(error, errorInfo) {
-      console.error("Error caught in ErrorBoundary:", error, errorInfo);
-    }
-
-    render() {
-      if (this.state.hasError) {
-        return <h1>Something went wrong.</h1>;
-      }
-
-      return this.props.children;
-    }
-  }
-
   //Modals
   const closeActiveModal = () => {
     setActiveModal("");
@@ -86,6 +63,7 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
   };
+
   const handleSearch = (query) => {
     setErrorMessage("");
     setIsLoading(true);
@@ -93,8 +71,11 @@ function App() {
       .getNews(query.text)
       .then((data) => {
         setIsLoading(false);
-        if (data.articles.length === 0) {
-          setErrorMessage("Nothing Found");
+        if (!data.articles || data.articles.length === 0) {
+          setErrorMessage(
+            "Nothing Found. Sorry, but nothing matched your search term."
+          );
+          setSearchResults([]);
         } else {
           // Update the articles with a unique _id
           const updatedResults = data.articles.map((article) => ({
@@ -181,7 +162,7 @@ function App() {
                 <Main
                   searchResults={searchResults}
                   isLoading={isLoading}
-                  // errorMessage={errorMessage}
+                  errorMessage={errorMessage}
                   isLoggedIn={isLoggedIn}
                   handleSavedNewsToggle={handleSavedNewsToggle}
                   savedNews={savedNews}

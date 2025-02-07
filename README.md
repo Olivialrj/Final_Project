@@ -2,31 +2,29 @@
 
 ## A description of the project :
 
-This project is created using full-stack web application called "WTWR".
-This application wil read weather data from a Weather API and the recommend suitable clothing to the user based on that data.
-The app features an intuitive interface for users to add, view, and categorize their garments based on different weather conditions: It incorporates a modal interface for adding new garments and provides a user-friendly way to interact with clothing option.
+This project is a front-end web application developed as part of my final project for TripleTen. The application fetches news from a News API based on user search queries. It features an intuitive interface that allows users to save their favorite news articles and categorize them using the keywords they searched with.
 
 ## and its functionality:
 
 ### User interface:
 
 A clean and modern layout with a responsive design for seamless use on various devices.
-A header that displays the current date and user information
+A header that displays the search bar and navigation.
 
-### Garment Mangement:
+### News Mangement:
 
-Users can add clothing items through a modal form, specifying details such as the garment type, weather suitability, and images.
-Each garment can be categorized as suitable for day or night wear and based on weather conditions (e.g., sunny, rainy).
+Users can save their favorite news articles by clicking the save icon on the news article modal. Each saved article will be categorized based on the search keywords used.
+A preloader is displayed when users enter a search query, indicating that the app is fetching results. This is controlled by the isLoading state, which is set to true during the data retrieval process and false once the results are loaded.
 
 ### Modal Interactions:
 
-Modal windows are used for adding garments, with functionality to open and close the modal.
+Modal windows are used for registration and logins, with functionality to open and close the modal.
 Users can close the modal by clicking outside of it or pressing the Escape key.
 
-### Weather Integration:
+### News Integration:
 
-The app retrieves and displays weather data to suggest suitable clothing options based on current weather conditions.
-Users can filter garments based on whether it’s day or night and the specific weather condition.
+The app retrieves and displays news article based on the search query that is provided by the user.
+The application fetches news from a News API, but it only retrieves articles from the past week to ensure relevance and timeliness.
 
 ### Event Handling:
 
@@ -66,7 +64,7 @@ Overview: Implementing custom event handlers to manage user interactions, ensuri
 
 Overview: Designing the application to ensure compatibility across various devices and screen sizes. Techniques: Media Queries: Utilizing CSS media queries to adapt styles for different viewport sizes. Fluid Layouts: Creating flexible layouts that adjust based on the available screen space.
 
-### Version Control with Git
+## Version Control with Git
 
 Overview: Using Git for version control to track changes, collaborate with others, and manage the project’s source code effectively. Techniques: Branching and Merging: Employing branches for feature development and merging them into the main branch upon completion.
 
