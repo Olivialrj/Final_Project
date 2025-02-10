@@ -1,0 +1,128 @@
+.newsCard {
+  width: 400px;
+  height: 576px;
+  background-color: white;
+  border-radius: 30px;
+  position: relative;
+}
+
+.newsCard__img {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  height: 272px;
+  width: 400px;
+}
+.newsCard__keyword {
+  width: 43px;
+  height: 24px;
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 24px;
+  left: 24px;
+  padding: 8px 22px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.newsCard__prompt {
+  visibility: hidden;
+  height: 18px;
+  position: absolute;
+  width: 142px;
+  top: 24px;
+  right: 69px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-size: 12px;
+  padding: 11px 20px;
+}
+.newsCard__prompt2 {
+  visibility: hidden;
+  height: 18px;
+  position: absolute;
+  top: 24px;
+  right: 69px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-size: 12px;
+  padding: 11px 26px;
+}
+
+.newsCard__save-btn {
+  background-image: url("src/assets/saved-inactive.svg");
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 8px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.newsCard__save-btn_active {
+  background-image: url("src/assets/saved-active.svg");
+}
+
+.newsCard__save-btn:not(.newsCard__save-btn_active):hover {
+  background-image: url("src/assets/saved-hover.svg");
+}
+
+.newsCard__delete-btn {
+  background-image: url("src/assets/delete-icon.svg");
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 8px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.newsCard__delete-btn:hover {
+  background-image: url("src/assets/delete-icon-hover.svg");
+}
+
+.newsCard__save-container:hover .newsCard__prompt {
+  opacity: 1;
+  visibility: visible;
+}
+
+.newsCard__save-container:hover .newsCard__prompt2 {
+  opacity: 1;
+  visibility: visible;
+}
+
+.newsCard__content {
+  padding: 20px 31px 24px 17px;
+}
+
+.newsCard__date {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+}
+
+.newsCard__title {
+  margin: 0 0 16px 0;
+  font-size: 26px;
+}
+
+.newsCard__description {
+  margin: 0 0 18px 0;
+  font-size: 16px;
+}
+
+.newsCard__source {
+  margin: 0;
+  font-size: 16px;
+}

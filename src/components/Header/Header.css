@@ -1,0 +1,30 @@
+.header {
+  background-image: url("src/assets/news2.jpg");
+  height: 576px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header__container {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  width: 608px;
+}
+.header__headers {
+  text-align: center;
+  color: white;
+  padding: 60px 0 88px 0;
+}
+
+.header__header1 {
+  font-size: 60px;
+  font-weight: 400;
+  font-family: "Roboto-Slab";
+  margin: 0;
+}
+
+.header__header2 {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 32px 0 0;
+}
