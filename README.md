@@ -64,18 +64,6 @@ Overview: Implementing custom event handlers to manage user interactions, ensuri
 
 Overview: Designing the application to ensure compatibility across various devices and screen sizes. Techniques: Media Queries: Utilizing CSS media queries to adapt styles for different viewport sizes. Fluid Layouts: Creating flexible layouts that adjust based on the available screen space.
 
-## Version Control with Git
-
-Overview: Using Git for version control to track changes, collaborate with others, and manage the project’s source code effectively. Techniques: Branching and Merging: Employing branches for feature development and merging them into the main branch upon completion.
-
-Pictures, GIFs, or screenshots that detail project features (highly recommended):
-
-A demo video of your project (highly recommended):
-
-A link to GitHub Pages (optional): https://olivialrj.github.io/se_project_react
-
-The code is well-formatted using the Prettier.
-
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
