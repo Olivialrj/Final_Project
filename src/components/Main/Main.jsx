@@ -3,7 +3,6 @@ import notFound from "../../assets/not-found_v1.svg";
 import Preloader from "../Preloader/Preloader";
 import NewsCard from "../NewsCard/NewsCard";
 import "./Main.css";
-
 function Main({
   searchResults,
   isLoading,
@@ -17,18 +16,16 @@ function Main({
   const handleShowMore = () => {
     setVisibleCount((prevCount) => prevCount + 3);
   };
-
-  if (!isLoading && (!searchResults || searchResults.length === 0)) {
-    return null;
-  }
-
+  // if (!isLoading && (!searchResults || searchResults.length === 0)) {
+  //   return null;
+  // }
   return (
     <main className={`main ${isLoading ? "main--loading" : "main--content"}`}>
       {" "}
       {isLoading ? (
         <>
           <Preloader />
-          <p className="main__loader">Searching for articles...</p>
+          <p className="main__loader">Searching for articles</p>
         </>
       ) : errorMessage ? (
         <>
@@ -45,10 +42,11 @@ function Main({
             </p>
           </div>
         </>
-      ) : (
+      ) : searchResults.length > 0 ? (
         <>
+          <h2 className="main__header">Search Results</h2>
           <ul className="main__list">
-            {searchResults.slice(0, visibleCount).map((article, index) => {
+            {searchResults.slice(0, visibleCount).map((article) => {
               const isSaved = savedNews.some(
                 (saved) => saved._id === article._id
               );
@@ -74,9 +72,8 @@ function Main({
             </button>
           )}
         </>
-      )}
+      ) : null}
     </main>
   );
 }
-
 export default Main;

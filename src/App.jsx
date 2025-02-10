@@ -10,7 +10,7 @@ import SavedNews from "./components/savedNews/savedNews";
 import LoginModal from "./components/LoginModal/LoginModal";
 import RegisterModal from "./components/RegisterModal/RegisterModal";
 // import CurrentUserContext from "./contexts/CurrentUserContexts";
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+// import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import * as newsApi from "../utils/newsApi";
 import * as auth from "../utils/auth";
 import "./App.css";
@@ -22,7 +22,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
   const [savedNews, setSavedNews] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -71,10 +71,8 @@ function App() {
       .getNews(query.text)
       .then((data) => {
         setIsLoading(false);
-        if (!data.articles || data.articles.length === 0) {
-          setErrorMessage(
-            "Nothing Found. Sorry, but nothing matched your search term."
-          );
+        if (data.totalResults === 0) {
+          setErrorMessage(true);
           setSearchResults([]);
         } else {
           // Update the articles with a unique _id
@@ -86,11 +84,9 @@ function App() {
           setSearchResults(updatedResults); // Set the updated results to state
         }
       })
-      .catch((error) => {
-        setIsLoading(false);
-        setErrorMessage(
-          "Sorry, something went wrong during the request. Please try again later."
-        );
+      .catch((err) => {
+        // setIsLoading(false);
+        setErrorMessage(true);
       });
   };
 
