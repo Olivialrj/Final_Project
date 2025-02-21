@@ -15,11 +15,13 @@ import * as newsApi from "../utils/newsApi";
 import * as auth from "../utils/auth";
 import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
+import RegistrationConfirmationModal from "./components/RegistrationConfirmationModal/RegistrationConfirmationModal";
+import NavigationMobile from "./components/Navigation/NavigationMobile";
 
 function App() {
   //useState
   const [activeModal, setActiveModal] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
@@ -35,6 +37,9 @@ function App() {
   };
   const handleRegisterClick = () => {
     setActiveModal("register");
+  };
+  const handleNavigationMobile = () => {
+    setActiveModal("navigation-mobile");
   };
 
   //Handle
@@ -55,7 +60,7 @@ function App() {
       .then((data) => {
         setCurrentUser(data);
         setIsLoggedIn(true);
-        closeActiveModal();
+        setActiveModal("registrationConfirmation");
       })
       .catch(console.error);
   };
@@ -154,6 +159,7 @@ function App() {
                   handleSearch={handleSearch}
                   isLoggedIn={isLoggedIn}
                   handleLogout={handleLogout}
+                  handleNavigationMobile={handleNavigationMobile}
                 />
                 <Main
                   searchResults={searchResults}
@@ -196,6 +202,18 @@ function App() {
         handleRegistration={handleRegistration}
         isOpen={activeModal === "register"}
         handleAltClick={handleLoginClick}
+      />
+      <RegistrationConfirmationModal
+        onCloseModal={closeActiveModal}
+        handleLoginClick={handleLoginClick}
+        isOpen={activeModal === "registrationConfirmation"}
+      />
+      <NavigationMobile
+        isLoggedIn={isLoggedIn}
+        onCloseModal={closeActiveModal}
+        handleLoginClick={handleLoginClick}
+        handleLogout={handleLogout}
+        isOpen={activeModal === "navigation-mobile"}
       />
     </div>
     // </CurrentUserContext.Provider>

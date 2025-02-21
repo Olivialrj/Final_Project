@@ -1,12 +1,19 @@
-import { useState } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./SavedNews.css";
 
-function SavedNews({ savedNews }) {
+function SavedNews({ savedNews, isLoggedIn }) {
   const keywords = Array.from(
     new Set(savedNews.map((article) => article.query))
   );
 
+  const displayedKeywords = keywords.slice(0, 2); // First 2 keywords
+  const remainingCount = keywords.length - 2; // Count of remaining keywords
+
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
   return (
     <>
       <div className="savedNews">
@@ -15,8 +22,11 @@ function SavedNews({ savedNews }) {
           <h1 className="savedNews__subtitle">
             Elise, you have {savedNews.length} saved articles
           </h1>
-          <p className="savedNews__keywords-label">
-            By keywords: {keywords.join(", ")}
+          <p className="savedNews__keywords">
+            By keywords: {displayedKeywords.join(", ")}
+            {remainingCount > 0
+              ? `, and ${remainingCount} other${remainingCount > 1 ? "s" : ""}`
+              : ""}
           </p>
         </section>
         <ul className="savedNews__list">
@@ -25,7 +35,10 @@ function SavedNews({ savedNews }) {
               <NewsCard
                 key={article._id}
                 image={article.urlToImage}
-                date={article.date}
+                date={new Date(article.publishedAt).toLocaleDateString(
+                  "en-US",
+                  options
+                )}
                 title={article.title}
                 description={article.description}
                 source={article.source.name}

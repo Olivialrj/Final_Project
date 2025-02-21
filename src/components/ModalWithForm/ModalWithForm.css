@@ -48,11 +48,20 @@
 
 .modal__button {
   padding: 20px 114px;
-  background-color: darkgrey;
   border-radius: 100px;
   border: none;
   min-height: 64px;
   font-size: 18px;
+  background-color: #2f71e5;
+  color: white;
+}
+
+.modal__button:hover {
+  background-color: #347eff;
+}
+
+.modal__button:active {
+  background-color: #2a65cc;
 }
 
 .modal__button2 {
@@ -64,4 +73,36 @@
 
 .modal_visible {
   visibility: visible;
+}
+
+@media (max-width: 320px) {
+  .modal__container {
+    padding: 16px 0 150px 16px;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    border-radius: 25px 25px 0 0;
+  }
+  .modal__close {
+    width: 24px;
+    height: 24px;
+    top: -40px;
+    right: 16px;
+    background-position: center;
+  }
+  .modal__form-label {
+    font-weight: 400;
+    width: 288px;
+  }
+  .modal__form-input {
+    width: 288px;
+  }
+  .modal__button {
+    height: 64px;
+    width: 288px;
+  }
+
+  .modal__button2 {
+    width: 288px;
+  }
 }

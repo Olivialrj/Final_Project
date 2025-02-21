@@ -1,5 +1,7 @@
 # The project's name: Final_Project
 
+# Link : https://github.com/Olivialrj/Final_Project/tree/stage-1-frontend-api
+
 ## A description of the project :
 
 This project is a front-end web application developed as part of my final project for TripleTen. The application fetches news from a News API based on user search queries. It features an intuitive interface that allows users to save their favorite news articles and categorize them using the keywords they searched with.

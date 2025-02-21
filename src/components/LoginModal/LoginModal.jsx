@@ -4,14 +4,26 @@ import "./LoginModal.css";
 
 function LoginModal({ onCloseModal, handleLogin, isOpen, handleAltClick }) {
   const [data, setData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    const key = id.replace("login-", ""); // Strip "update-" to match the state keys
+    const key = id.replace("login-", ""); // Strip "login-" to match the state keys
+
     setData((prevState) => ({
       ...prevState,
       [key]: value,
     }));
+
+    // Validate email only
+    if (key === "email") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        setError("Invalid email address.");
+      } else {
+        setError("");
+      }
+    }
   };
 
   const handleSubmit = (e) => {
@@ -40,7 +52,9 @@ function LoginModal({ onCloseModal, handleLogin, isOpen, handleAltClick }) {
           placeholder="Enter Email"
           value={data.email}
           onChange={handleChange}
+          required
         />
+        {error && <p className="modal__form-error">{error}</p>}
         <label htmlFor="login-email" className="modal__form-label">
           Password
         </label>
@@ -51,6 +65,7 @@ function LoginModal({ onCloseModal, handleLogin, isOpen, handleAltClick }) {
           placeholder="Enter Password"
           value={data.password}
           onChange={handleChange}
+          required
         />
       </ModalWithForm>
     </div>

@@ -1,4 +1,3 @@
-import sample from "../../assets/sample-newscard.png";
 import "./NewsCard.css";
 
 function NewsCard({
@@ -26,7 +25,7 @@ function NewsCard({
         {isSavedPage && isLoggedIn && (
           <>
             <div className="newsCard__keyword">{keyword}</div>
-            <div className="newsCard__prompt2">Removed from saved</div>
+            <div className="newsCard__prompt-remove">Removed from saved</div>
           </>
         )}
         {isSavedPage ? (
@@ -47,7 +46,7 @@ function NewsCard({
       </div>
       <div className="newsCard__content">
         <p className="newsCard__date">{date}</p>
-        <p className="newsCard__title">{title}</p>
+        <p className="newsCard__header">{title}</p>
         <p className="newsCard__description">{description}</p>
         <p className="newsCard__source">{source}</p>
       </div>

@@ -12,10 +12,44 @@
 .modal__form-input {
   border: none;
   border-bottom: solid 1px lightgrey;
-  margin-bottom: 31px;
+  /* margin-bottom: 31px; */
   font-size: 14px;
+  border-bottom: solid 1px lightgrey;
 }
 
 .modal__form-input:last-of-type {
   margin-bottom: 39px;
 }
+
+/* @media (max-width: 320px) {
+  .modal__container {
+    padding: 16px 0 150px 16px;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 12px 12px 0 0;
+  }
+  .modal__close {
+    width: 24px;
+    height: 24px;
+    top: -40px;
+    right: 16px;
+  }
+  .modal__form-label {
+    font-weight: 400;
+    width: 288px;
+  }
+  .modal__form-input {
+    width: 288px;
+  }
+  .modal__button {
+    height: 64px;
+    width: 288px;
+  }
+
+  .modal__button2 {
+    width: 288px;
+  }
+} */

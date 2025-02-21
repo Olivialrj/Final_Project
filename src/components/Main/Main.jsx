@@ -19,6 +19,13 @@ function Main({
   // if (!isLoading && (!searchResults || searchResults.length === 0)) {
   //   return null;
   // }
+
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
   return (
     <main className={`main ${isLoading ? "main--loading" : "main--content"}`}>
       {" "}
@@ -54,7 +61,11 @@ function Main({
                 <NewsCard
                   key={article._id}
                   image={article.urlToImage || "fallback-image.png"}
-                  date={new Date(article.publishedAt).toLocaleDateString()}
+                  date={new Date(article.publishedAt).toLocaleDateString(
+                    "en-US",
+                    options
+                  )}
+                  // date={article.publishedAt}
                   title={article.title}
                   description={article.description}
                   source={article.source.name}
@@ -66,11 +77,16 @@ function Main({
               );
             })}
           </ul>
-          {searchResults.length > visibleCount && (
-            <button className="main__button" onClick={handleShowMore}>
-              Show more
-            </button>
-          )}
+          <div
+            className="main__cat
+          "
+          >
+            {searchResults.length > visibleCount && (
+              <button className="main__button" onClick={handleShowMore}>
+                Show more
+              </button>
+            )}
+          </div>
         </>
       ) : null}
     </main>

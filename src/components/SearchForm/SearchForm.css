@@ -5,20 +5,20 @@
 .searchForm {
   display: flex;
   align-items: center;
-  width: 608px; /* Match the width in your design */
+  width: 608px;
   height: 64px;
-  border-radius: 32px; /* Half the height for full rounding */
+  border-radius: 32px;
   overflow: hidden;
   border: 1 solid darkgray;
 }
 
 .searchForm__input {
-  flex: 1; /* Takes up all available space */
+  flex: 1;
   height: 100%;
   border: none;
   padding: 0 20px;
   font-size: 16px;
-  outline: none; /* Removes default focus outline */
+  outline: none;
   color: #333;
   border-top-left-radius: 32px;
   border-bottom-left-radius: 32px;
@@ -27,8 +27,8 @@
 .searchForm__button {
   height: 100%;
   padding: 0 24px;
-  background-color: #4285f4; /* Blue background */
-  color: white; /* White text */
+  background-color: #4285f4;
+  color: white;
   border: none;
   font-size: 16px;
   font-weight: bold;
@@ -45,4 +45,24 @@
 .searchForm__button:active {
   background-color: #2a65cc;
   cursor: pointer;
+}
+
+@media (max-width: 320px) {
+  .searchForm {
+    flex-direction: column;
+    height: 128px;
+    gap: 16px;
+  }
+  .searchForm__input {
+    border-radius: 100px;
+    min-width: -webkit-fill-available;
+    max-height: 56px;
+  }
+
+  .searchForm__button {
+    max-height: 56px;
+    min-width: -webkit-fill-available;
+    margin-left: 0;
+    font-weight: normal;
+  }
 }

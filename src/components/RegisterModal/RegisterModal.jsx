@@ -23,6 +23,7 @@ function RegisterModal({
     e.preventDefault();
     handleRegistration(data);
   };
+
   return (
     <ModalWithForm
       title="Sign up"

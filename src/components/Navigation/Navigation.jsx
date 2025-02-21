@@ -1,12 +1,22 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import menu from "../../assets/menu.svg";
+import menuDark from "../../assets/menu-dark.svg";
 import logout from "../../assets/logout.svg";
 import logoutDark from "../../assets/logoout-black.svg";
 
 import "./Navigation.css";
 
-function Navigation({ handleLoginClick, isLoggedIn, handleLogout }) {
+function Navigation({
+  handleLoginClick,
+  isLoggedIn,
+  handleLogout,
+  handleNavigationMobile,
+}) {
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
+
+  const isMobile = useMediaQuery({ maxWidth: 320 });
 
   return (
     <div
@@ -23,58 +33,70 @@ function Navigation({ handleLoginClick, isLoggedIn, handleLogout }) {
         >
           NewsExplorer
         </NavLink>
-        <div className="navigation__not_logged_in">
-          <NavLink
-            exact
-            to="/"
-            className={({ isActive }) =>
-              `navigation__home ${isActive ? "navigation__home--active" : ""} ${
-                isSavedNewsPage ? "navigation__home--saved-news" : ""
-              }`
-            }
-          >
-            Home
-          </NavLink>
-          {!isLoggedIn ? (
+
+        {isMobile ? (
+          <nav className="navigation__mobile">
             <button
-              onClick={handleLoginClick}
               type="button"
-              className="navigation__sign_in"
+              className="navigation__menu-button"
+              onClick={handleNavigationMobile}
             >
-              Sign In
+              <img src={isSavedNewsPage ? menuDark : menu} alt="Menu" />
             </button>
-          ) : (
-            <>
-              <NavLink
-                to="/saved-news"
-                className={({ isActive }) =>
-                  `navigation__saved-news ${
-                    isActive ? "navigation__saved-news--active" : ""
-                  } ${
-                    isSavedNewsPage ? "navigation__saved-news--saved-news" : ""
-                  }`
-                }
-              >
-                Saved Articles
-              </NavLink>
+          </nav>
+        ) : (
+          <div className="navigation__not_logged_in">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `navigation__home ${
+                  isActive ? "navigation__home--active" : ""
+                } ${isSavedNewsPage ? "navigation__home--saved-news" : ""}`
+              }
+            >
+              Home
+            </NavLink>
+            {!isLoggedIn ? (
               <button
-                // type="submit"
-                // onClick={handleLogOut}
-                className={`navigation__logout ${
-                  isSavedNewsPage ? "navigation__logout--saved-news" : ""
-                }`}
-                onClick={handleLogout}
+                onClick={handleLoginClick}
+                type="button"
+                className="navigation__sign_in"
               >
-                Olivia
-                <img
-                  src={isSavedNewsPage ? logoutDark : logout}
-                  alt="logout icon"
-                  className="navigation__logout-img"
-                />
+                Sign In
               </button>
-            </>
-          )}
-        </div>
+            ) : (
+              <>
+                <NavLink
+                  to="/saved-news"
+                  className={({ isActive }) =>
+                    `navigation__saved-news ${
+                      isActive ? "navigation__saved-news--active" : ""
+                    } ${
+                      isSavedNewsPage
+                        ? "navigation__saved-news--saved-news"
+                        : ""
+                    }`
+                  }
+                >
+                  Saved Articles
+                </NavLink>
+                <button
+                  className={`navigation__logout ${
+                    isSavedNewsPage ? "navigation__logout--saved-news" : ""
+                  }`}
+                  onClick={handleLogout}
+                >
+                  Elise
+                  <img
+                    src={isSavedNewsPage ? logoutDark : logout}
+                    alt="Logout"
+                    className="navigation__logout-img"
+                  />
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
   /* min-height: 974px; */
   background-color: #f5f6f7;
   position: relative;
+  /* padding: 80px 104px; */
 }
 .main--loading {
   min-height: 282px;
@@ -29,11 +30,15 @@
 }
 
 .main__list {
-  padding: 64px 0 64px 104px;
+  padding: 64px 104px;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
   margin: 0;
+}
+
+.main__cat {
+  padding-bottom: 80px;
 }
 
 .main__button {
@@ -42,7 +47,7 @@
   border-radius: 80px;
   border: none;
   display: block;
-  margin: 0 auto 80px auto;
+  margin: auto;
   background-color: white;
 }
 
@@ -79,4 +84,51 @@
   font-weight: 400;
   text-align: center;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .main__header {
+    margin: 0;
+    font-size: 30px;
+    padding: 40px 0 0 40px;
+  }
+  .main__list {
+    padding: 32px 40px;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  .main__cat {
+    padding-bottom: 40px;
+  }
+  .main__button {
+    width: 240px;
+    height: 54px;
+    font-weight: 500;
+  }
+  /* .main__loader {
+    top: 165px;
+    right: 180px;
+    width: 150px;
+    font-size: 18px;
+    text-align: center;
+  } */
+}
+
+@media (max-width: 320px) {
+  .main__header {
+    padding: 32px 16px 0 16px;
+    font-weight: lighter;
+  }
+  .main__list {
+    padding: 58px 16px 16px 16px;
+  }
+  .main__cat {
+    padding-bottom: 24px;
+  }
+  .main__button {
+    width: 288px;
+    height: 56px;
+    font-weight: 500;
+  }
 }
