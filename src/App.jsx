@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -90,7 +89,6 @@ function App() {
         }
       })
       .catch((err) => {
-        // setIsLoading(false);
         setErrorMessage(true);
       });
   };
@@ -100,10 +98,8 @@ function App() {
     setSavedNews((prev) => {
       const isAlreadySaved = prev.some((saved) => saved._id === article._id);
       if (isAlreadySaved) {
-        // Remove article if it's already saved
         return prev.filter((saved) => saved._id !== article._id);
       } else {
-        // Add article to savedNews
         return [...prev, article];
       }
     });
@@ -177,17 +173,16 @@ function App() {
             path="/saved-news"
             element={
               <>
-                <Navigation isLoggedIn={true} />
-                <SavedNews
-                  savedNews={savedNews}
+                <Navigation
+                  isLoggedIn={true}
                   handleLoginClick={handleLoginClick}
-                  isLoggedIn={isLoggedIn}
+                  handleLogout={handleLogout}
+                  handleNavigationMobile={handleNavigationMobile}
                 />
+                <SavedNews savedNews={savedNews} isLoggedIn={isLoggedIn} />
               </>
             }
           />
-          {/* <ProtectedRoute isLoggedIn={isLoggedIn}> */}
-          {/* </ProtectedRoute> */}
         </Routes>
         <Footer />
       </div>
