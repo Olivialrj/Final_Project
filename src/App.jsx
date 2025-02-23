@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
-import SavedNews from "./components/savedNews/savedNews";
+import SavedNews from "./components/SavedNews/SavedNews";
 import LoginModal from "./components/LoginModal/LoginModal";
 import RegisterModal from "./components/RegisterModal/RegisterModal";
 // import CurrentUserContext from "./contexts/CurrentUserContexts";

@@ -106,13 +106,17 @@
     height: 54px;
     font-weight: 500;
   }
-  /* .main__loader {
-    top: 165px;
-    right: 180px;
-    width: 150px;
-    font-size: 18px;
-    text-align: center;
-  } */
+  .main--loading {
+    left: 340px;
+  }
+  .main__errors {
+    max-width: 768px;
+    padding: 200px 300px 50px 300px;
+  }
+  .main__error-img {
+    top: 86px;
+    left: 340px;
+  }
 }
 
 @media (max-width: 320px) {
@@ -130,5 +134,15 @@
     width: 288px;
     height: 56px;
     font-weight: 500;
+  }
+  .main--loading {
+    left: 560px;
+  }
+  .main__errors {
+    padding: 150px 100px 50px 100px;
+  }
+  .main__error-img {
+    left: 120px;
+    top: 60px;
   }
 }

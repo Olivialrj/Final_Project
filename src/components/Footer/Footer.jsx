@@ -1,8 +1,8 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import facebook_logo from "../../assets/facebook_logo.svg";
 import github_logo from "../../assets/github_logo.svg";
-import "./footer.css";
+import "./Footer.css";
 
 function Footer() {
   const isMobile = useMediaQuery({ maxWidth: 320 });

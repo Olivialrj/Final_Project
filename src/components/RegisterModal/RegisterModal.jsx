@@ -45,6 +45,7 @@ function RegisterModal({
         value={data.email}
         onChange={handleChange}
       />
+
       <label htmlFor="register-password" className="modal__form-label">
         Password
       </label>

@@ -60,7 +60,7 @@
 }
 
 .newsCard__save-btn {
-  background-image: url("src/assets/saved-inactive.svg");
+  background-image: url("/saved-inactive.svg");
   height: 40px;
   width: 40px;
   border: none;
@@ -71,15 +71,15 @@
 }
 
 .newsCard__save-btn_active {
-  background-image: url("src/assets/saved-active.svg");
+  background-image: url("/saved-active.svg");
 }
 
 .newsCard__save-btn:not(.newsCard__save-btn_active):hover {
-  background-image: url("src/assets/saved-hover.svg");
+  background-image: url("/saved-hover.svg");
 }
 
 .newsCard__delete-btn {
-  background-image: url("src/assets/delete-icon.svg");
+  background-image: url("/delete-icon.svg");
   height: 40px;
   width: 40px;
   border: none;
@@ -90,7 +90,7 @@
 }
 
 .newsCard__delete-btn:hover {
-  background-image: url("src/assets/delete-icon-hover.svg");
+  background-image: url("/delete-icon-hover.svg");
 }
 
 .newsCard__save-container:hover .newsCard__prompt {

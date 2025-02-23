@@ -1,8 +1,9 @@
 .header {
-  background-image: url("src/assets/news2.jpg");
+  background-image: url("/news2.jpg");
   height: 576px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 .header__container {
   display: flex;
@@ -39,14 +40,14 @@
   .header__headers {
     padding: 38px 0 48px 0;
   }
-  .header__header1 {
+  .header__header-top {
     font-size: 36px;
     font-family: "Roboto Slab";
     line-height: 40px;
     width: 385px;
     text-align: start;
   }
-  .header__header2 {
+  .header__header-bottom {
     font-size: 18px;
     width: 452px;
     text-align: start;
@@ -65,11 +66,11 @@
   .header__headers {
     padding-bottom: 122px;
   }
-  .header__header1 {
+  .header__header-top {
     max-width: fit-content;
   }
 
-  .header__header2 {
+  .header__header-bottom {
     max-width: fit-content;
   }
 }

@@ -1,6 +1,6 @@
 # The project's name: Final_Project
 
-# Link : https://github.com/Olivialrj/Final_Project/tree/stage-1-frontend-api
+# Link : https://final-project-fmck06jkj-olivia-lims-projects.vercel.app/
 
 ## A description of the project :
 

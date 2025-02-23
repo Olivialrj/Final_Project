@@ -3,6 +3,7 @@ import notFound from "../../assets/not-found_v1.svg";
 import Preloader from "../Preloader/Preloader";
 import NewsCard from "../NewsCard/NewsCard";
 import "./Main.css";
+
 function Main({
   searchResults,
   isLoading,
@@ -16,9 +17,6 @@ function Main({
   const handleShowMore = () => {
     setVisibleCount((prevCount) => prevCount + 3);
   };
-  // if (!isLoading && (!searchResults || searchResults.length === 0)) {
-  //   return null;
-  // }
 
   const options = {
     year: "numeric",
