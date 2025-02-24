@@ -16,7 +16,7 @@ function Navigation({
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
 
-  const isMobile = useMediaQuery({ maxWidth: 320 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 787 });
 
   return (
     <div
@@ -45,7 +45,7 @@ function Navigation({
             </button>
           </nav>
         ) : (
-          <div className="navigation__not_logged_in">
+          <nav className="navigation__not-logged-in">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -60,7 +60,7 @@ function Navigation({
               <button
                 onClick={handleLoginClick}
                 type="button"
-                className="navigation__sign_in"
+                className="navigation__sign-in"
               >
                 Sign In
               </button>
@@ -95,7 +95,7 @@ function Navigation({
                 </button>
               </>
             )}
-          </div>
+          </nav>
         )}
       </div>
     </div>

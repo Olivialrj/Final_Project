@@ -1,16 +1,19 @@
 .newsCard {
-  width: 400px;
+  max-width: 400px;
   height: 576px;
   background-color: white;
   border-radius: 30px;
   position: relative;
+  width: 100%;
 }
 
 .newsCard__img {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   height: 272px;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
+  object-fit: cover;
 }
 .newsCard__keyword {
   width: 43px;
@@ -43,7 +46,7 @@
   font-size: 12px;
   padding: 11px 20px;
 }
-.newsCard__prompt2 {
+.newsCard__prompt-remove {
   visibility: hidden;
   height: 18px;
   position: absolute;
@@ -98,7 +101,7 @@
   visibility: visible;
 }
 
-.newsCard__save-container:hover .newsCard__prompt2 {
+.newsCard__save-container:hover .newsCard__prompt-remove {
   opacity: 1;
   visibility: visible;
 }
@@ -144,7 +147,7 @@
   color: #b6bcbf;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1439px) {
   .newsCard {
     width: 224px;
     height: 420px;
@@ -202,7 +205,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .newsCard {
     width: 288px;
     height: 440px;

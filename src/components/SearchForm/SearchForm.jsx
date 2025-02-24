@@ -21,7 +21,7 @@ function SearchForm({ handleSearch }) {
 
   return (
     <div className="searchForm__modal">
-      <form onSubmit={handleSubmit} className="searchForm">
+      <form onSubmit={handleSubmit} className="searchForm__form">
         <input
           id="searchForm-text"
           type="text"

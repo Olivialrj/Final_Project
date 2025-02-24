@@ -29,8 +29,10 @@ function Main({
       {" "}
       {isLoading ? (
         <>
-          <Preloader />
-          <p className="main__loader">Searching for articles</p>
+          <div className="main__loading">
+            <Preloader />
+            <p className="main__loader">Searching for articles</p>
+          </div>
         </>
       ) : errorMessage ? (
         <>

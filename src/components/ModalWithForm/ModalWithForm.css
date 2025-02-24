@@ -81,7 +81,7 @@
   visibility: visible;
 }
 
-@media (max-width: 320px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .modal__container {
     padding: 16px 0 150px 16px;
     height: auto;

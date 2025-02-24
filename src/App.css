@@ -2,8 +2,11 @@
   background-color: #f3f3f3;
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 700;
+  max-width: 100%;
 }
 
 .page__content {
+  max-width: 1440px;
+  width: 90%;
   margin: 0 auto;
 }

@@ -72,13 +72,3 @@ function LoginModal({ onCloseModal, handleLogin, isOpen, handleAltClick }) {
   );
 }
 export default LoginModal;
-
-{
-  /* <button
-type="button"
-onClick={handleRegisterClick}
-className="modal__register-link"
->
-or Sign Up
-</button> */
-}

@@ -30,7 +30,7 @@
   margin: 32px 0 0;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1439px) {
   .header {
     height: 400px;
   }
@@ -42,7 +42,7 @@
   }
   .header__header-top {
     font-size: 36px;
-    font-family: "Roboto Slab";
+    font-family: "Roboto Slab", Arial, sans-serif;
     line-height: 40px;
     width: 385px;
     text-align: start;
@@ -55,7 +55,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .header {
     min-height: 536px;
     background-position: top center;
@@ -68,9 +68,11 @@
   }
   .header__header-top {
     max-width: fit-content;
+    font-size: 36px;
   }
 
   .header__header-bottom {
     max-width: fit-content;
+    margin: 16px 0 0;
   }
 }

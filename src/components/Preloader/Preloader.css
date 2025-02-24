@@ -9,7 +9,6 @@
   animation: spin 0.75s infinite linear;
   position: absolute;
   top: 80px;
-  right: 683px;
 }
 
 @keyframes spin {

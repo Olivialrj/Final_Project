@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
 }
-.searchForm {
+.searchForm__form {
   display: flex;
   align-items: center;
   width: 608px;
@@ -47,8 +47,8 @@
   cursor: pointer;
 }
 
-@media (max-width: 320px) {
-  .searchForm {
+@media (min-width: 320px) and (max-width: 767px) {
+  .searchForm__form {
     flex-direction: column;
     height: 128px;
     gap: 16px;

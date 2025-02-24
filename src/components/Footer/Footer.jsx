@@ -5,13 +5,13 @@ import github_logo from "../../assets/github_logo.svg";
 import "./Footer.css";
 
 function Footer() {
-  const isMobile = useMediaQuery({ maxWidth: 320 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 787 });
   return (
     <footer className="footer">
       <p className="footer__header">© 2025 Supersite, Powered by News API</p>
       {isMobile ? (
-        <div className="footer__nav">
-          <div className="footer__nav-cat">
+        <nav className="footer__nav">
+          <ul className="footer__lists">
             <NavLink to="/" className="footer__home">
               Home
             </NavLink>
@@ -23,8 +23,8 @@ function Footer() {
             >
               TripleTen
             </a>
-          </div>
-          <div className="footer__logos">
+          </ul>
+          <ul className="footer__logos-lists">
             <a
               href="https://github.com/Olivialrj/Final_Project"
               className="footer__github"
@@ -49,10 +49,10 @@ function Footer() {
                 alt="Facebook Logo"
               />
             </a>
-          </div>
-        </div>
+          </ul>
+        </nav>
       ) : (
-        <div className="footer__nav">
+        <nav className="footer__nav">
           <NavLink to="/" className="footer__home">
             Home
           </NavLink>
@@ -64,7 +64,7 @@ function Footer() {
           >
             TripleTen
           </a>
-          <div className="footer__logos">
+          <ul className="footer__logos-lists">
             <a
               href="https://github.com/Olivialrj/Final_Project"
               className="footer__github"
@@ -89,8 +89,8 @@ function Footer() {
                 alt="Facebook Logo"
               />
             </a>
-          </div>
-        </div>
+          </ul>
+        </nav>
       )}
     </footer>
   );
