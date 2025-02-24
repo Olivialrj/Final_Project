@@ -16,7 +16,7 @@ function Navigation({
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
 
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 787 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 767 });
 
   return (
     <div

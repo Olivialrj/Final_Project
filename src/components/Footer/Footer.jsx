@@ -5,7 +5,7 @@ import github_logo from "../../assets/github_logo.svg";
 import "./Footer.css";
 
 function Footer() {
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 787 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 767 });
   return (
     <footer className="footer">
       <p className="footer__header">© 2025 Supersite, Powered by News API</p>

@@ -46,7 +46,7 @@ function NewsCard({
       </div>
       <div className="newsCard__content">
         <p className="newsCard__date">{date}</p>
-        <p className="newsCard__header">{title}</p>
+        <h2 className="newsCard__header">{title}</h2>
         <p className="newsCard__description">{description}</p>
         <p className="newsCard__source">{source}</p>
       </div>

@@ -147,9 +147,10 @@
   color: #b6bcbf;
 }
 
-@media (min-width: 768px) and (max-width: 1439px) {
+/* @media (min-width: 768px) and (max-width: 1439px) { */
+@media (max-width: 1000px) {
   .newsCard {
-    width: 224px;
+    max-width: 224px;
     height: 420px;
   }
   .newsCard__content {
@@ -205,9 +206,10 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+/* @media (min-width: 320px) and (max-width: 767px) { */
+@media (max-width: 767px) {
   .newsCard {
-    width: 288px;
+    max-width: 288px;
     height: 440px;
   }
   .newsCard__img {
