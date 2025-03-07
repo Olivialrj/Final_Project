@@ -1,4 +1,4 @@
-import avatar from "../../assets/avatar1.png";
+import avatar from "/avatar.png";
 import "./About.css";
 
 function About() {

@@ -1,4 +1,4 @@
-import "./RegistrationConfrimationModal.css";
+import "./RegistrationConfirmationModal.css";
 
 const RegistrationConfirmationModal = ({
   handleLoginClick,

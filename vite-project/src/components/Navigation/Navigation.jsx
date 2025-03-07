@@ -1,9 +1,9 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-import menu from "../../assets/menu.svg";
-import menuDark from "../../assets/menu-dark.svg";
-import logout from "../../assets/logout.svg";
-import logoutDark from "../../assets/logoout-black.svg";
+import menu from "/menu.svg";
+import menuDark from "/menu-dark.svg";
+import logout from "/logout.svg";
+import logoutDark from "/logout-dark.svg";
 
 import "./Navigation.css";
 
