@@ -1,0 +1,52 @@
+/* Dashboard.css */
+
+.dashboard {
+  background: #f9f9f9;
+  padding: 60px 40px;
+  border-radius: 16px;
+  margin: 40px auto;
+  max-width: 1440px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.dashboard h2 {
+  font-size: 36px;
+  margin-bottom: 32px;
+  color: #333;
+  text-align: center;
+}
+
+.dashboard__metrics {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 40px;
+  color: #444;
+}
+
+.dashboard__charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.dashboard__cards {
+  margin: 25px 0 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dashboard__insights {
+  margin: 50px 0;
+}
+.chart h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #222;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .dashboard__charts {
+    grid-template-columns: 1fr;
+  }
+}

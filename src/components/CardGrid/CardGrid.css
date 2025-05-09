@@ -1,0 +1,22 @@
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.card {
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.card-content {
+  margin-top: 10px;
+  color: #444;
+}
+
+.card-draggable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}

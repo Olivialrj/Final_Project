@@ -1,6 +1,5 @@
 import { checkResponse } from "./newsApi";
-
-// const baseUrl = "";
+const baseUrl = "http://localhost:3001";
 
 // export const register = (email, password, username) => {
 //   return fetch(`${baseUrl}/signup`, {
@@ -22,7 +21,7 @@ import { checkResponse } from "./newsApi";
 //   }).then(checkResponse);
 // };
 
-//test
+// test;
 export const register = (email, password, username) => {
   return Promise.resolve({
     data: { username, email, _id: "fake-id" },

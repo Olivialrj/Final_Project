@@ -1,10 +1,13 @@
 import NewsCard from "../NewsCard/NewsCard";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./SavedNews.css";
 
 function SavedNews({ savedNews, isLoggedIn }) {
   const keywords = Array.from(
     new Set(savedNews.map((article) => article.query))
   );
+  const currentUser = useContext(CurrentUserContext);
 
   const displayedKeywords = keywords.slice(0, 2); // First 2 keywords
   const remainingCount = keywords.length - 2; // Count of remaining keywords
@@ -20,7 +23,7 @@ function SavedNews({ savedNews, isLoggedIn }) {
         <section className="savedNews__header">
           <p className="savedNews__title">Saved Articles</p>
           <h1 className="savedNews__subtitle">
-            Elise, you have {savedNews.length} saved articles
+            {currentUser.username}, you have {savedNews.length} saved articles
           </h1>
           <p className="savedNews__keywords">
             By keywords: {displayedKeywords.join(", ")}

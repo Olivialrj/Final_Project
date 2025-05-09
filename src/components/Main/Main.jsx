@@ -52,7 +52,7 @@ function Main({
       ) : searchResults.length > 0 ? (
         <div className="main__content">
           {" "}
-          <h2 className="main__header">Search Results</h2>
+          <h2 className="main__header"> 🔍 Search Results</h2>
           <ul className="main__list">
             {searchResults.slice(0, visibleCount).map((article) => {
               const isSaved = savedNews.some(

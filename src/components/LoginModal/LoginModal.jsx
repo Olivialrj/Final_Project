@@ -1,18 +1,20 @@
 import { useState } from "react";
+// import PhoneInput from "react-phone-number-input";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
+// import "react-phone-number-input/style.css";
 
 function LoginModal({ onCloseModal, handleLogin, isOpen, handleAltClick }) {
-  const [data, setData] = useState({ email: "", password: "" });
+  const [data, setData] = useState({ email: "", password: "", number: "" });
   const [error, setError] = useState("");
+  // const [country, setCountry] = useState("US");
 
   const handleChange = (e) => {
     const { id, value } = e.target;
     const key = id.replace("login-", ""); // Strip "login-" to match the state keys
-
     setData((prevState) => ({
-      ...prevState,
-      [key]: value,
+      ...prevState, //copies everything in prevState using spread operator(...)
+      [key]: value, // [] is computer property names , without it, it adds the property  key and not its actual value property name
     }));
 
     // Validate email only
@@ -30,6 +32,21 @@ function LoginModal({ onCloseModal, handleLogin, isOpen, handleAltClick }) {
     e.preventDefault();
     handleLogin(data);
   };
+
+  // useEffect(() => {
+  //   const fetchCountry = async () => {
+  //     try {
+  //       const response = await fetch("http://ipapi.co/json/");
+  //       const data = await response.json();
+  //       setCountry(data.country_code);
+  //     } catch (error) {
+  //       console.error("Error fetching country:", error);
+  //       setCountry("US");
+  //     }
+  //   };
+
+  //   fetchCountry();
+  // }, []);
 
   return (
     <div>
@@ -67,6 +84,21 @@ function LoginModal({ onCloseModal, handleLogin, isOpen, handleAltClick }) {
           onChange={handleChange}
           required
         />
+        {/* <label htmlFor="login-number" className="modal__form-label">
+          Mobile Number
+        </label>
+        <PhoneInput
+          className="modal__form-input"
+          id="login-number"
+          placeholder="Enter number"
+          value={data.number}
+          onChange={(value) => setData((prev) => ({ ...prev, number: value }))}
+          defaultCountry={country}
+          international
+          withCountryCallingCode
+          countryCallingCodeEditable={false}
+          // required
+        />{" "} */}
       </ModalWithForm>
     </div>
   );

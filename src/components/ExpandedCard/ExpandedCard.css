@@ -1,0 +1,25 @@
+.expandable-card {
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px;
+  transition: box-shadow 0.2s ease;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.card-collasped {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.card-icon {
+  font-size: 18px;
+  align-self: center;
+  transition: transform 0.2s ease;
+}
