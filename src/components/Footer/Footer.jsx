@@ -21,7 +21,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              TripleTen
+              About
             </a>
           </ul>
           <ul className="footer__logos-lists">
@@ -62,7 +62,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            TripleTen
+            About
           </a>
           <ul className="footer__logos-lists">
             <a

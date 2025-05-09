@@ -79,7 +79,7 @@ export const editorPicks = [
       "Style is the only thing you can't buy. it's not in a shopping bag, a label, or a price tag. It's",
     date: "sep 12, 2023",
     category: "Fashion",
-    image: "public/image-2.webp",
+    image: "public/image1.jpg",
   },
   {
     id: "2",
@@ -89,7 +89,7 @@ export const editorPicks = [
       "Style is the only thing you can't buy. it's not in a shopping bag, a label, or a price tag. It's",
     date: "sep 12, 2023",
     category: "Fashion",
-    image: "public/image-2.webp",
+    image: "public/image2.jpg",
   },
   {
     id: "3",
@@ -99,7 +99,7 @@ export const editorPicks = [
       "Style is the only thing you can't buy. it's not in a shopping bag, a label, or a price tag. It's",
     date: "sep 12, 2023",
     category: "Fashion",
-    image: "public/image-2.webp",
+    image: "public/image3.jpg",
   },
   {
     id: "4",
@@ -109,7 +109,7 @@ export const editorPicks = [
       "Style is the only thing you can't buy. it's not in a shopping bag, a label, or a price tag. It's",
     date: "sep 12, 2023",
     category: "Fashion",
-    image: "public/image-2.webp",
+    image: "public/image4.jpg",
   },
 ];
 

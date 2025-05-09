@@ -53,7 +53,7 @@ function ResponsiveAppBar({ handleLogout, handleLoginClick, isLoggedin }) {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "black",
               textDecoration: "none",
             }}
           >
@@ -118,7 +118,7 @@ function ResponsiveAppBar({ handleLogout, handleLoginClick, isLoggedin }) {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page}
               </Button>
@@ -173,7 +173,11 @@ function ResponsiveAppBar({ handleLogout, handleLoginClick, isLoggedin }) {
                 </Menu>
               </>
             ) : (
-              <Button onClick={handleLoginClick} color="inherit">
+              <Button
+                onClick={handleLoginClick}
+                variant="contained"
+                sx={{ color: "black", backgroundColor: "#D9CCC1" }}
+              >
                 Sign In
               </Button>
             )}
