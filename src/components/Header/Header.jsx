@@ -2,20 +2,13 @@ import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 import "./Header.css";
 
-function Header({
-  handleLoginClick,
-  handleSearch,
-  isLoggedIn,
-  handleLogout,
-  handleNavigationMobile,
-}) {
+function Header({ handleLoginClick, handleSearch, isLoggedIn, handleLogout }) {
   return (
     <header className="header">
       <Navigation
         handleLoginClick={handleLoginClick}
         isLoggedIn={isLoggedIn}
         handleLogout={handleLogout}
-        handleNavigationMobile={handleNavigationMobile}
       />
       <div className="header__container">
         <section className="header__headers">

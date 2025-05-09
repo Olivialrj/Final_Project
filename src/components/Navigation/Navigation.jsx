@@ -1,105 +1,186 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
-import menu from "/menu.svg";
-import menuDark from "/menu-dark.svg";
-import logout from "/logout.svg";
-import logoutDark from "/logout-dark.svg";
+import * as React from "react";
+import { useNavigate } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
 
-import "./Navigation.css";
+const pages = ["Home", "All Post", "Business", "Technology", "Podcast"];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function Navigation({
-  handleLoginClick,
-  isLoggedIn,
-  handleLogout,
-  handleNavigationMobile,
-}) {
-  const location = useLocation();
-  const isSavedNewsPage = location.pathname === "/saved-news";
+function ResponsiveAppBar({ handleLogout, handleLoginClick, isLoggedin }) {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
 
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 767 });
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   return (
-    <div
-      className={`navigation ${
-        isSavedNewsPage ? "navigation--saved-news" : ""
-      }`}
-    >
-      <div className="navigation__block">
-        <NavLink
-          to="/"
-          className={`navigation__logo ${
-            isSavedNewsPage ? "navigation__logo--saved-news" : ""
-          }`}
-        >
-          NewsExplorer
-        </NavLink>
+    <AppBar position="static" sx={{ backgroundColor: "transparent" }}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            NewsExplorer
+          </Typography>
 
-        {isMobile ? (
-          <nav className="navigation__mobile">
-            <button
-              type="button"
-              className="navigation__menu-button"
-              onClick={handleNavigationMobile}
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
             >
-              <img src={isSavedNewsPage ? menuDark : menu} alt="Menu" />
-            </button>
-          </nav>
-        ) : (
-          <nav className="navigation__not-logged-in">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `navigation__home ${
-                  isActive ? "navigation__home--active" : ""
-                } ${isSavedNewsPage ? "navigation__home--saved-news" : ""}`
-              }
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{ display: { xs: "block", md: "none" } }}
             >
-              Home
-            </NavLink>
-            {!isLoggedIn ? (
-              <button
-                onClick={handleLoginClick}
-                type="button"
-                className="navigation__sign-in"
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            NewsExplorer
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
               >
-                Sign In
-              </button>
-            ) : (
+                {page}
+              </Button>
+            ))}
+          </Box>
+          <Box sx={{ flexGrow: 0 }}>
+            {isLoggedin ? (
               <>
-                <NavLink
-                  to="/saved-news"
-                  className={({ isActive }) =>
-                    `navigation__saved-news ${
-                      isActive ? "navigation__saved-news--active" : ""
-                    } ${
-                      isSavedNewsPage
-                        ? "navigation__saved-news--saved-news"
-                        : ""
-                    }`
-                  }
+                {" "}
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src="/static/images/avatar/2.jpg"
+                    />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
                 >
-                  Saved Articles
-                </NavLink>
-                <button
-                  className={`navigation__logout ${
-                    isSavedNewsPage ? "navigation__logout--saved-news" : ""
-                  }`}
-                  onClick={handleLogout}
-                >
-                  Elise
-                  <img
-                    src={isSavedNewsPage ? logoutDark : logout}
-                    alt="Logout"
-                    className="navigation__logout-img"
-                  />
-                </button>
+                  {settings.map((setting) => (
+                    <MenuItem
+                      key={setting}
+                      onClick={() => {
+                        handleCloseUserMenu();
+                        if (setting === "Logout") {
+                          handleLogout();
+                        } else if (settings == "Dashboard") {
+                          navigate("/saved-news");
+                          console.log(`Navigating to ${setting}`);
+                        }
+                      }}
+                    >
+                      <Typography sx={{ textAlign: "center" }}>
+                        {setting}
+                      </Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
               </>
+            ) : (
+              <Button onClick={handleLoginClick} color="inherit">
+                Sign In
+              </Button>
             )}
-          </nav>
-        )}
-      </div>
-    </div>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
-
-export default Navigation;
+export default ResponsiveAppBar;

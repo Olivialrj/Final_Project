@@ -1,26 +1,40 @@
+.newsCardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px; /* offset for horizontal gap */
+}
+
 .newsCard {
+  flex: 0 0 33.3333%;
+  padding: 0 0 24px 0;
   max-width: 400px;
-  height: 576px;
-  background-color: white;
-  border-radius: 30px;
+  height: 550px;
   position: relative;
-  width: 100%;
+  background-color: #f3f3f3;
+  box-sizing: border-box;
+}
+
+/* Responsive: 2 per row on medium screens, 1 on small */
+@media screen and (max-width: 1024px) {
+  .newsCard {
+    flex: 0 0 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .newsCard {
+    flex: 0 0 100%;
+  }
 }
 
 .newsCard__img {
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  height: 272px;
+  height: 260px;
   width: 100%;
-  max-width: 400px;
   object-fit: cover;
 }
+
 .newsCard__keyword {
-  width: 43px;
-  height: 24px;
   position: absolute;
   background-color: white;
-  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,41 +43,36 @@
   padding: 8px 22px;
   font-size: 14px;
   font-weight: 500;
+  border-radius: 5px;
 }
-.newsCard__prompt {
+
+.newsCard__prompt,
+.newsCard__prompt-remove {
   visibility: hidden;
-  height: 18px;
   position: absolute;
-  width: 142px;
   top: 24px;
   right: 69px;
   background-color: white;
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  align-content: center;
   align-items: center;
   font-size: 12px;
   padding: 11px 20px;
 }
+
 .newsCard__prompt-remove {
-  visibility: hidden;
-  height: 18px;
-  position: absolute;
-  top: 24px;
-  right: 69px;
-  background-color: white;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  font-size: 12px;
   padding: 11px 26px;
 }
 
-.newsCard__save-btn {
-  background-image: url("/saved-inactive.svg");
+.newsCard__save-container:hover .newsCard__prompt,
+.newsCard__save-container:hover .newsCard__prompt-remove {
+  opacity: 1;
+  visibility: visible;
+}
+
+.newsCard__save-btn,
+.newsCard__delete-btn {
   height: 40px;
   width: 40px;
   border: none;
@@ -71,6 +80,13 @@
   position: absolute;
   top: 24px;
   right: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.newsCard__save-btn {
+  background-image: url("/saved-inactive.svg");
 }
 
 .newsCard__save-btn_active {
@@ -83,27 +99,10 @@
 
 .newsCard__delete-btn {
   background-image: url("/delete-icon.svg");
-  height: 40px;
-  width: 40px;
-  border: none;
-  border-radius: 8px;
-  position: absolute;
-  top: 24px;
-  right: 24px;
 }
 
 .newsCard__delete-btn:hover {
   background-image: url("/delete-icon-hover.svg");
-}
-
-.newsCard__save-container:hover .newsCard__prompt {
-  opacity: 1;
-  visibility: visible;
-}
-
-.newsCard__save-container:hover .newsCard__prompt-remove {
-  opacity: 1;
-  visibility: visible;
 }
 
 .newsCard__content {
@@ -119,9 +118,8 @@
 
 .newsCard__header {
   margin: 0 0 16px 0;
-  font-size: 26px;
-  font-family: "Roboto Slab";
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 500;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -145,115 +143,4 @@
   font-family: "Roboto Slab";
   font-weight: bold;
   color: #b6bcbf;
-}
-
-/* @media (min-width: 768px) and (max-width: 1439px) { */
-@media (max-width: 1000px) {
-  .newsCard {
-    max-width: 224px;
-    height: 420px;
-  }
-  .newsCard__content {
-    padding: 16px;
-  }
-  .newsCard__img {
-    width: 224px;
-    height: 150px;
-  }
-  .newsCard__header {
-    margin: 0 0 10px 0;
-    font-size: 22px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    max-height: 72px;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-  }
-  .newsCard__description {
-    margin: 0 0 12px 0;
-    font-size: 16px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    max-height: 88px;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-  }
-  .newsCard__source {
-    margin: 0 0 16px 0;
-  }
-  .newsCard__save-btn {
-    top: 8px;
-    right: 8px;
-  }
-  .newsCard__prompt {
-    width: 142px;
-    top: 10px;
-    right: 50px;
-    padding: 8px 10px;
-  }
-  .newsCard__delete-btn {
-    top: 8px;
-    right: 8px;
-  }
-  .newsCard__keyword {
-    top: 8px;
-    left: 8px;
-    padding: 8px 20px;
-  }
-}
-
-/* @media (min-width: 320px) and (max-width: 767px) { */
-@media (max-width: 767px) {
-  .newsCard {
-    max-width: 288px;
-    height: 440px;
-  }
-  .newsCard__img {
-    width: 288px;
-    height: 196px;
-  }
-  .newsCard__content {
-    padding: 16px;
-  }
-  .newsCard__date {
-    margin-bottom: 10px;
-  }
-  .newsCard__header {
-    margin: 0 0 14px 0;
-    font-size: 22px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    max-height: 48px;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-  }
-  .newsCard__description {
-    margin: 0 0 8px 0;
-    font-size: 16px;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    max-height: 88px;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-  }
-  .newsCard__save-btn {
-    top: 16px;
-    right: 16px;
-  }
-  .newsCard__keyword {
-    top: 16px;
-    left: 16px;
-  }
-  .newsCard__delete-btn {
-    top: 16px;
-    right: 16px;
-  }
 }

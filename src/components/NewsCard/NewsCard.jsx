@@ -16,6 +16,12 @@ function NewsCard({
   return (
     <div className="newsCard">
       {/* <div className="newsCard__modal"> */}
+      <a
+        href={source}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="newsCard__link"
+      ></a>
       <img src={image} alt={title} className="newsCard__img" />
       <div className="newsCard__save-container">
         {!isLoggedIn && !isSavedPage && (

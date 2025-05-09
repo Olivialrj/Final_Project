@@ -1,21 +1,22 @@
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import About from "./components/About/About";
+import Home from "./pages/HomePage";
 import Footer from "./components/Footer/Footer";
-import SavedNews from "./components/SavedNews/SavedNews";
 import LoginModal from "./components/LoginModal/LoginModal";
 import RegisterModal from "./components/RegisterModal/RegisterModal";
-// import CurrentUserContext from "./contexts/CurrentUserContexts";
-// import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import CurrentUserContext from "./contexts/CurrentUserContext";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import * as newsApi from "../utils/newsApi";
 import * as auth from "../utils/auth";
+import { initialCards } from "../utils/constants";
+import { logApiCall, logTopicSearch } from "../utils/metrics";
 import "./App.css";
-import Navigation from "./components/Navigation/Navigation";
 import RegistrationConfirmationModal from "./components/RegistrationConfirmationModal/RegistrationConfirmationModal";
 import NavigationMobile from "./components/Navigation/NavigationMobile";
+import SavedNewsPage from "./pages/SavedNewsPage";
+import AboutPage from "./pages/AboutPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   //useState
@@ -26,6 +27,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState(false);
   const [savedNews, setSavedNews] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
+  const [cards, setCards] = useState(initialCards);
 
   //Modals
   const closeActiveModal = () => {
@@ -64,13 +66,19 @@ function App() {
       .catch(console.error);
   };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
+  const handleLogout = ({ email, password }) => {
+    auth.authorisation(email, password).then((data) => {
+      setCurrentUser(data.user);
+      setIsLoggedIn(true);
+      closeActiveModal();
+    });
   };
 
   const handleSearch = (query) => {
     setErrorMessage("");
     setIsLoading(true);
+    logApiCall();
+    logTopicSearch(query);
     newsApi
       .getNews(query.text)
       .then((data) => {
@@ -143,76 +151,73 @@ function App() {
   }, [savedNews]);
 
   return (
-    // <CurrentUserContext.Provider value={currentUser}>
-    <div className="page">
-      <div className="page__content">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="page">
+        <div className="page__content">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
                   handleLoginClick={handleLoginClick}
                   handleSearch={handleSearch}
                   isLoggedIn={isLoggedIn}
                   handleLogout={handleLogout}
-                  handleNavigationMobile={handleNavigationMobile}
-                />
-                <Main
                   searchResults={searchResults}
                   isLoading={isLoading}
                   errorMessage={errorMessage}
-                  isLoggedIn={isLoggedIn}
                   handleSavedNewsToggle={handleSavedNewsToggle}
                   savedNews={savedNews}
+                  cards={cards}
+                  setCards={setCards}
                 />
-                <About />
-              </>
-            }
-          />
-          <Route
-            path="/saved-news"
-            element={
-              <>
-                <Navigation
-                  isLoggedIn={true}
-                  handleLoginClick={handleLoginClick}
-                  handleLogout={handleLogout}
-                  handleNavigationMobile={handleNavigationMobile}
-                />
-                <SavedNews savedNews={savedNews} isLoggedIn={isLoggedIn} />
-              </>
-            }
-          />
-        </Routes>
-        <Footer />
+              }
+            />
+            <Route
+              path="/saved-news"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <SavedNewsPage
+                    isLoggedIn={isLoggedIn}
+                    handleLoginClick={handleLoginClick}
+                    handleLogout={handleLogout}
+                    handleNavigationMobile={handleNavigationMobile}
+                    savedNews={savedNews}
+                  />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
+          <Footer />
+        </div>
+        <LoginModal
+          onCloseModal={closeActiveModal}
+          handleLogin={handleLogin}
+          isOpen={activeModal === "login"}
+          handleAltClick={handleRegisterClick}
+        />
+        <RegisterModal
+          onCloseModal={closeActiveModal}
+          handleRegistration={handleRegistration}
+          isOpen={activeModal === "register"}
+          handleAltClick={handleLoginClick}
+        />
+        <RegistrationConfirmationModal
+          onCloseModal={closeActiveModal}
+          handleLoginClick={handleLoginClick}
+          isOpen={activeModal === "registrationConfirmation"}
+        />
+        <NavigationMobile
+          isLoggedIn={isLoggedIn}
+          onCloseModal={closeActiveModal}
+          handleLoginClick={handleLoginClick}
+          handleLogout={handleLogout}
+          isOpen={activeModal === "navigation-mobile"}
+        />
       </div>
-      <LoginModal
-        onCloseModal={closeActiveModal}
-        handleLogin={handleLogin}
-        isOpen={activeModal === "login"}
-        handleAltClick={handleRegisterClick}
-      />
-      <RegisterModal
-        onCloseModal={closeActiveModal}
-        handleRegistration={handleRegistration}
-        isOpen={activeModal === "register"}
-        handleAltClick={handleLoginClick}
-      />
-      <RegistrationConfirmationModal
-        onCloseModal={closeActiveModal}
-        handleLoginClick={handleLoginClick}
-        isOpen={activeModal === "registrationConfirmation"}
-      />
-      <NavigationMobile
-        isLoggedIn={isLoggedIn}
-        onCloseModal={closeActiveModal}
-        handleLoginClick={handleLoginClick}
-        handleLogout={handleLogout}
-        isOpen={activeModal === "navigation-mobile"}
-      />
-    </div>
-    // </CurrentUserContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
 
