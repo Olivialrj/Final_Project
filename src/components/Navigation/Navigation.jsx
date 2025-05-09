@@ -175,8 +175,16 @@ function ResponsiveAppBar({ handleLogout, handleLoginClick, isLoggedin }) {
             ) : (
               <Button
                 onClick={handleLoginClick}
-                variant="contained"
-                sx={{ color: "black", backgroundColor: "#D9CCC1" }}
+                variant="outlined"
+                sx={{
+                  color: "black",
+                  backgroundColor: "#D9CCC1",
+                  borderColor: "#D9CCC1", // set the outline color
+                  "&:hover": {
+                    backgroundColor: "#c8beb3", // optional: slightly darker on hover
+                    borderColor: "#c8beb3",
+                  },
+                }}
               >
                 Sign In
               </Button>
