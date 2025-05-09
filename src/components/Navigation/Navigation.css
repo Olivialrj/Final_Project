@@ -24,14 +24,13 @@
 }
 
 .navigation--saved-news {
-  background-color: white;
+  background-color: black;
 }
 
 .navigation__logo {
   font-size: 20px;
   align-self: center;
   text-decoration: none;
-  color: white;
 }
 
 .navigation__logo--saved-news {

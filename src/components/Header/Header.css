@@ -1,5 +1,5 @@
 .header {
-  background-image: url("/news2.jpg");
+  background-image: url("/public/pawel-czerwinski-OBqC5FgwTt4-unsplash.jpg");
   height: 576px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,7 +13,7 @@
 }
 .header__headers {
   text-align: center;
-  color: white;
+  color: black;
   padding: 60px 0 88px 0;
 }
 
