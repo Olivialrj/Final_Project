@@ -1,6 +1,8 @@
 # The project's name: Final_Project
 
-# Link : final-project-rosy-seven.vercel.app
+# Link :
+
+final-project-rosy-seven.vercel.app
 
 ## A description of the project :
 
@@ -49,10 +51,6 @@ Overview: CSS is used for styling the application, ensuring a visually appealing
 ### CSS Modules or Styled Components (if applicable)
 
 Overview: A technique for writing CSS that scopes styles to individual components, preventing style conflicts and enhancing modularity. Benefits: This approach allows for better organization of styles and easier maintenance as the application grows.
-
-### Weather API Integration
-
-Overview: The app integrates with a weather API to fetch real-time weather data, providing users with relevant clothing recommendations based on current weather conditions. Techniques: Asynchronous Fetching: Using fetch or axios for making asynchronous API requests to retrieve weather data, which is then processed and displayed in the app. Data Filtering: Implementing functions to filter weather data and match it with the appropriate clothing items.
 
 ### React Hooks
 
